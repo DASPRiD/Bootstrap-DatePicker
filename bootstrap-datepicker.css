@@ -1,0 +1,72 @@
+.bootstrap-datepicker {
+  position: relative;
+}
+
+.bootstrap-datepicker > span {
+    cursor: default;
+}
+
+.bootstrap-datepicker > input[readonly] {
+    background-color: inherit;
+    cursor: default;
+}
+
+.bootstrap-datepicker-calendar {
+    position: absolute;
+    z-index: 1000;
+    top: 100%;
+    left: 0;
+
+    float: left;
+    min-width: 296px;
+}
+
+.bootstrap-datepicker-calendar > table {
+    width: 376px;
+    background: #ffffff;
+}
+
+.bootstrap-datepicker-calendar > table .months > th {
+    font-size: 12px;
+    text-align: center;
+}
+
+.bootstrap-datepicker-calendar > table .months > th.month > span {
+    display: inline-block;
+    width: 100px;
+}
+
+.bootstrap-datepicker-calendar > table .months > th.year > span {
+    display: inline-block;
+    width: 50px;
+}
+
+.bootstrap-datepicker-calendar > table .weekdays > th {
+    width: 30px;
+    font-size: 11px;
+    line-height: 12px;
+    text-align: center;
+}
+
+.bootstrap-datepicker-calendar > table > tbody > tr > td {
+    width: 30px;
+    font-size: 11px;
+    line-height: 12px;
+    text-align: center;
+}
+
+.bootstrap-datepicker-calendar > table > tbody > tr > td.today {
+    color: #ffffff;
+    background-color: #428bca;
+}
+
+.bootstrap-datepicker-calendar > table > tbody > tr > td.off {
+    color: #999999;
+}
+
+.bootstrap-datepicker-calendar > table > tbody > tr > td:not(.off):hover {
+    color: #262626;
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
