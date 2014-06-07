@@ -50,6 +50,8 @@ You can also pass a few options to the initializer:
   when the value is empty.
 - dateFormat (string, ```L```): date format displayed in the input field to the
   user. See http://momentjs.com/docs/#/displaying/format/
+- preferNativeCalendar (bool, ```true```): whether to prefer the browser native
+  datepicker if available.
 
 Instead of passing these values into the initializer, you can also plant them
 onto the input:

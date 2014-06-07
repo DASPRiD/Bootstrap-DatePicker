@@ -1,9 +1,41 @@
 (function($){
     'use strict';
 
+    function isNativeCalendarAvailable(){
+        if (isNativeCalendarAvailable.available !== undefined) {
+            return isNativeCalendarAvailable.available;
+        }
+
+        var userAgent = window.navigator.userAgent;
+        var element = document.createElement('input');
+        element.type = 'date';
+
+        isNativeCalendarAvailable.available = (
+            (
+                userAgent.match(/Android/i)
+                || userAgent.match(/webOS/i)
+                || userAgent.match(/iPhone/i)
+                || userAgent.match(/iPad/i)
+                || userAgent.match(/iPod/i)
+                || userAgent.match(/BlackBerry/i)
+                || userAgent.match(/Windows Phone/i)
+            )
+            && element.type === 'date'
+        );
+
+        return isNativeCalendarAvailable.available;
+    }
+
     var DatePicker = function(element, options){
         this.options = $.extend({}, this.defaults, options);
         this.originalInput = $(element);
+
+        if (this.options.preferNativeCalendar) {
+            this.useNativeCalendar = isNativeCalendarAvailable();
+        } else {
+            this.useNativeCalendar = false;
+        }
+
         this.initDatePicker();
     };
 
@@ -12,10 +44,31 @@
 
         defaults: {
             defaultToday: false,
-            dateFormat: 'L'
+            dateFormat: 'L',
+            preferNativeCalendar: true
         },
 
         initDatePicker: function(){
+            var datePicker = this;
+
+            if (this.useNativeCalendar) {
+                this.originalInput.attr('type', 'date');
+                this.group = $('<div class="input-group bootstrap-datepicker"/>');
+                this.originalInput.after(this.group);
+                this.group.append('<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"/></span>');
+                this.group.append(this.originalInput);
+                this.group.append('<span class="input-group-btn"><button class="btn btn-default" type="button"><span class="glyphicon glyphicon-remove"/></button></span>');
+
+                if (this.originalInput.val() === '' && this.options.defaultToday) {
+                    this.originalInput.val(moment().format('YYYY-MM-DD'));
+                }
+
+                this.group.find('button').on('click', function(){
+                    datePicker.originalInput.val('');
+                });
+                return;
+            }
+
             this.input = this.originalInput.clone();
 
             this.originalInput.removeAttr('required');
@@ -46,15 +99,13 @@
 
             this.updateInputs();
             this.calendar = null;
-            var datePicker = this;
 
-            this.group.on('click', function(){
+            this.input.on('click', function(){
                 datePicker.initCalendar.call(datePicker);
             });
 
             this.group.find('button').on('click', function(){
                 datePicker.unsetValue.call(datePicker);
-                return false;
             });
         },
 
