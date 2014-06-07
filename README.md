@@ -10,7 +10,13 @@ The most important feature about this datepicker is that all values transfered
 to your backend and coming from it are always formatted as ISO dates, so you
 don't have to do any complicated parsing on your server.
 
-## Installation
+## Demo
+
+A demo is available on the GitHub pages of this project:
+
+http://dasprid.github.io/Bootstrap-DatePicker/demo.html
+
+## Installation and usage
 
 First, grab the latest version of Moment.js from here:
 http://momentjs.com/
