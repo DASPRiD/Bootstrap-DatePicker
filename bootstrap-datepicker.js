@@ -181,7 +181,6 @@
             this.closeHandler = function(event){
                 if (!$(event.target).closest('.bootstrap-datepicker').is(datePicker.group)) {
                     datePicker.destroyCalendar.call(datePicker);
-                    $(document).off('click.bootstrap-datepicker', null, datePicker.closeHandler);
                 }
             };
 
@@ -251,6 +250,8 @@
 
             this.calendar.remove();
             this.calendar = null;
+
+            $(document).off('click.bootstrap-datepicker', null, this.closeHandler);
             this.closeHandler = null;
         },
 
