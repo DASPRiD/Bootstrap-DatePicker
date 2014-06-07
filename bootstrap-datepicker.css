@@ -55,6 +55,11 @@
     text-align: center;
 }
 
+.bootstrap-datepicker-calendar > table > tbody > tr > td.weekday-sat,
+.bootstrap-datepicker-calendar > table > tbody > tr > td.weekday-sun {
+    background-color: #f5f5f5;
+}
+
 .bootstrap-datepicker-calendar > table > tbody > tr > td.today {
     color: #ffffff;
     background-color: #428bca;

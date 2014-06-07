@@ -48,6 +48,16 @@
             preferNativeCalendar: true
         },
 
+        weekdayClasses: [
+            'weekday-sun',
+            'weekday-mon',
+            'weekday-tue',
+            'weekday-wed',
+            'weekday-thu',
+            'weekday-fri',
+            'weekday-sat'
+        ],
+
         initDatePicker: function(){
             var datePicker = this;
 
@@ -212,33 +222,54 @@
             var lastWeekday          = date.weekday();
             var numDaysPreviousMonth = date.date(0).date();
             var firstWeekday         = date.date(date.date() + 1).weekday();
+            var realWeekday          = date.day() - firstWeekday;
+
+            if (realWeekday < 0) {
+                realWeekday += 7;
+            }
 
             var day, weekday, row = '';
 
             for (weekday = 0; weekday < firstWeekday; weekday++) {
-                row += '<td class="off">' + (numDaysPreviousMonth - (firstWeekday - weekday - 1)) + '</td>';
+                row += '<td class="' + this.weekdayClasses[realWeekday++] + ' off">' + (numDaysPreviousMonth - (firstWeekday - weekday - 1)) + '</td>';
             }
 
-            var today = moment();
+            var today       = moment();
+            var dayClasses  = ['weekday-sun', 'weekday-mon', 'weekday-tue', 'weekday-wed', 'weekday-thu', 'weekday-fri', 'weekday-sat'];
+
+            if (realWeekday === 7) {
+                realWeekday = 0;
+            }
 
             for (day = 1; day <= numDaysCurrentMonth; day++) {
+                var cellClass = this.weekdayClasses[realWeekday];
+
                 if (today.year() === date.year() && today.month() === date.month() && today.date() === day) {
-                    row += '<td class="today" data-day="' + day + '">' + day + '</td>';
-                } else {
-                    row += '<td data-day="' + day + '">' + day + '</td>';
+                    cellClass += ' today';
                 }
+
+                row += '<td class="' + cellClass + '" data-day="' + day + '">' + day + '</td>';
 
                 if (++weekday === 7) {
                     weekday = 0;
                     days.append('<tr>' + row + '</tr>');
                     row = '';
                 }
+
+                if (++realWeekday === 7) {
+                    realWeekday = 0;
+                }
             }
 
             if (weekday > 0) {
                 for (day = 1; weekday < 7; weekday++, day++) {
-                    row += '<td class="off">' + day + '</td>';
+                    row += '<td class="' + this.weekdayClasses[realWeekday] + ' off">' + day + '</td>';
+
+                    if (++realWeekday === 7) {
+                        realWeekday = 0;
+                    }
                 }
+
                 days.append('<tr>' + row + '</tr>');
             }
         },

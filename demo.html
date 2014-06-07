@@ -5,13 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Bootstrap Datepicker Demo</title>
-    
+
         <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js"></script>
-        
+
         <link rel="stylesheet" href="bootstrap-datepicker.css">
         <script src="bootstrap-datepicker.js"></script>
     </head>
@@ -20,29 +20,29 @@
             <div class="page-header">
                 <h1>Bootstrap Datepicker Demo</h1>
             </div>
-            
+
             <form role="form" class="col-sm-4">
                 <div class="form-group">
                     <label>Simple example</label>
                     <input type="text" class="form-control datepicker" />
                 </div>
-                
+
                 <div class="form-group">
                     <label>Default today</label>
                     <input type="text" class="form-control datepicker" data-default-today="true" />
                 </div>
-                
+
                 <div class="form-group">
                     <label>Different locale format</label>
                     <input type="text" class="form-control datepicker" data-date-format="LL" value="1986-01-25" />
                 </div>
-                
+
                 <div class="form-group">
                     <label>Fixed format</label>
                     <input type="text" class="form-control datepicker" data-date-format="YYYY MM DD" value="1986-01-25" />
                 </div>
             </div>
-            
+
             <script type="text/javascript">
             $('input.datepicker').each(function(){
                 var datepicker = $(this);
