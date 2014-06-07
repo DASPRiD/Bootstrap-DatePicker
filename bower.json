@@ -1,0 +1,18 @@
+{
+    "name": "Bootstrap-DatePicker",
+    "verison": "0.1.0",
+    "main": [
+        "bootstrap-datepicker.css",
+        "bootstrap-datepicker.js"
+    ],
+    "ignore": [
+        ".gitignore",
+        "README.MD",
+        "bower.json",
+        "demo.html"
+    ],
+    "dependencies": {
+        "bootstrap": ">= 3.1.0",
+        "jquery": ">= 1.9.0"
+    }
+}
