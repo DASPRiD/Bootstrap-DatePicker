@@ -31,6 +31,14 @@
     text-align: center;
 }
 
+.bootstrap-datepicker-calendar > table .months > th.month {
+    border-right: none;
+}
+
+.bootstrap-datepicker-calendar > table .months > th.year {
+    border-left: none;
+}
+
 .bootstrap-datepicker-calendar > table .months > th.month > span {
     display: inline-block;
     width: 100px;
