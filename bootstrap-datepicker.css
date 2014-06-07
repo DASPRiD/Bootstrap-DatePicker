@@ -83,3 +83,7 @@
     cursor: pointer;
 }
 
+.bootstrap-datepicker-calendar > table > tbody > tr > td.today:hover {
+    color: #ffffff;
+    background-color: #5ba2de;
+}
