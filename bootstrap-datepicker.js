@@ -45,6 +45,7 @@
         defaults: {
             defaultToday: false,
             dateFormat: 'L',
+            locale: null,
             preferNativeCalendar: true
         },
 
@@ -305,6 +306,10 @@
                 this.originalInput.val('');
                 this.input.val('');
                 return;
+            }
+
+            if (this.options.locale !== null) {
+                this.date.lang(this.options.locale);
             }
 
             this.originalInput.val(this.date.format('YYYY-MM-DD'));

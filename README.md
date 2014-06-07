@@ -22,9 +22,8 @@ First, grab the latest version of Moment.js from here:
 http://momentjs.com/
 
 If you only need support for the English locale, you are fine with the smaller
-moment.min.js file, else go with moment-with-lang.min.js. Right now you cannot
-change the locale of the datepicker locally, so just change the locale of
-Moment.js globally:
+moment.min.js file, else go with moment-with-lang.min.js. If you do not want to
+change the locale per instance but globally, you can do so via Moment.js:
 
 ```js
 moment.lang('de')
@@ -50,6 +49,8 @@ You can also pass a few options to the initializer:
   when the value is empty.
 - dateFormat (string, ```L```): date format displayed in the input field to the
   user. See http://momentjs.com/docs/#/displaying/format/
+- locale (string, ```null```): locale used for formatting dates instead of the
+  global default.
 - preferNativeCalendar (bool, ```true```): whether to prefer the browser native
   datepicker if available.
 
