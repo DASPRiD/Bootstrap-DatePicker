@@ -16,9 +16,15 @@ A demo is available on the GitHub pages of this project:
 
 http://dasprid.github.io/Bootstrap-DatePicker/demo.html
 
-## Installation and usage
+## Installation
 
-First, grab the latest version of Moment.js from here:
+The easiest way is to install via bower, this will also pull Moment.js:
+
+```sh
+bower install bootstrap-datepicker-dasprid
+```
+
+Else you can also install it manually, then you need to download Moment.Js:
 http://momentjs.com/
 
 If you only need support for the English locale, you are fine with the smaller
